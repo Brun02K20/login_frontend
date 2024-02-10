@@ -1,28 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { LoginForm } from './modules/LoginForm/LoginForm.jsx';
+import { RegisterForm } from './modules/RegisterForm/RegisterForm.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <LoginForm />
+          }
+        />
 
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+        <Route
+          path="/signUp"
+          element={
+            <RegisterForm />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
